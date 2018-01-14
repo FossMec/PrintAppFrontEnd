@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin:0;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 17px;
+    color:white;
+    line-height: 1.6;
+    background-image: url(../img/test1.jpeg);
+    background-size: cover;
+    height: 100vh;
+    
+    
+}
+
+#showcase{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    text-align: center;
+    padding: 190px 20px;
+}
+#showcase h1{
+    font-size: 50px;
+    line-height: 1.2;
+}
+#showcase p{
+    font-size: 20px;
+}
+#showcase .button{
+    font-size: 20px;
+    font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
+    text-decoration: none;
+    color:white;
+    border:white 2px solid;
+    padding: 0px 20px;
+    border-radius: 10px;
+    margin:20px;
+    background-color:mediumseagreen;
+}
+#showcase .button:hover{
+    background-color: white;
+    color:mediumseagreen;
+}
+
+
+/*Navingation Bar*/
+
+.navbar{
+    background-color:rgba(0,0,0,0.67);
+    overflow:hidden;
+    height:50px;
+}
+
+/*Top-Left Icon*/
+.navbar a{
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+.navbar ul{
+    margin: 8px 0 0 0;
+    list-style: none;
+}
+
+/*Side Bar contents*/
+.side-nav{
+    height: 100%;
+    width: 0;
+    position:fixed;
+    z-index: 1;
+    top:0;
+    left:0;
+    background-color: #111;
+    opacity:0.9;
+    overflow-x:hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.side-nav a{
+    padding: 10px 10px 10px 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color:#ccc;
+    display:block;
+    transition: 0.5s;
+    margin-top:10px;
+}
+.side-nav a:hover{
+    color:mediumseagreen;
+}
+
+/*Close Button*/
+.side-nav .close-btn{
+    position: absolute;
+    top:0;
+    right: 12px;
+    font-size: 36px;
+    margin-left:50px;
+}
