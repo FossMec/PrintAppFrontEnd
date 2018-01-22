@@ -25,4 +25,24 @@ body{
     margin-left: -30%;
     margin-top: -100px;
 }
+#creditDiv{
+    position: fixed;
+    height: 20%;
+    width: 100%;
+    background-color: black;
+    color: #f4f4f4;
+    text-align: center;
+    min-height: 100px;
+}
+#printDiv{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    padding: 10px;
 
+}
+#printButton{
+    width: 90%;
+}
