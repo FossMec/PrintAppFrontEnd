@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Print Ur Paper</title>
+        <link rel="stylesheet" href="../First Landing Page/home_style.css">
+    </head>
+    
+    <body>
+
+<!-- Navigation Bar -->        
+        <nav class="navbar">
+            <span class="open-slide">
+                <a href="#" onclick="openslidemenu()">
+                    <!--Ignore it it's copy and paste XD-->
+                    <svg width="30" height="30">
+                        <path d="M0,5 30,5" stroke="#fff" 
+                        stroke-width="5"/>
+                        <path d="M0,14 30,14" stroke="#fff" 
+                        stroke-width="5"/>
+                        <path d="M0,23 30,23" stroke="#fff" 
+                        stroke-width="5"/>
+                    </svg>
+                </a>
+            </span>
+        </nav>
+
+        <div id="side-menu" class="side-nav">
+            <a href="#" class="close-btn" onclick="closesidemenu()">&times;</a>
+            <a href="#">Sign Up/login</a>
+            <a href="#">How To Use</a>
+            <a href="#">Contact</a>
+        </div>
+
+
+<!--Full Screen Page -->
+        <div id="showcase">
+            <h1>Welcome to PrintU!</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cave putes quicquam esse verius. Non est ista.</p>
+            <a href="#" class="button">Print</a>
+        </div>
+        
+
+<!--Javascript-->
+        <script>
+            function openslidemenu(){
+                document.getElementById("side-menu").style.width="250px";
+            }
+            function closesidemenu(){
+                document.getElementById("side-menu").style.width="0px";
+            }
+        </script>
+    </body>
+
+</html>
