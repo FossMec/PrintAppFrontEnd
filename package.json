@@ -1,0 +1,19 @@
+{
+  "name": "wirelessprintingapp",
+  "version": "1.0.0",
+  "description": "Print over wifi from your phone",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aswin1999/WirelessPrintingApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aswin1999/WirelessPrintingApp/issues"
+  },
+  "homepage": "https://github.com/aswin1999/WirelessPrintingApp#readme"
+}
