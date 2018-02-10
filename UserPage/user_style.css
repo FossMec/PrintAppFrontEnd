@@ -78,14 +78,14 @@ body{
 #creditDiv{
     position: fixed;
     right: 0;
-    height: 10%;
-    width: 22%;
     background-color:rgba(0,0,0,0.4);
     color: #f4f4f4;
     text-align: center;
     min-height: 70px;
-    padding-bottom: 90px;
     border-radius: 12px;
+    font-size: 29px;
+    padding-top: 12px;
+    width: 40%;
 }
 #printDiv{
     position: fixed;
@@ -102,12 +102,15 @@ body{
 
 .container{
     background-color: white;
+    position:fixed;
+    top: 10em;
+    height: 50%;
 }
 
 @media(max-width:568px){
     .navbar-nav{display: none}
     #navigationbar{height: 40px}
-    #creditDiv{height: 17%;width: 70%;font-size: 20px;}
+    /*#creditDiv{height: 17%;width: 70%;font-size: 20px;}*/
 }
 
 @media(min-width:568px){
