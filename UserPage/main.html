@@ -6,10 +6,14 @@
     <title>UserPage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="../UserPage/user_style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   </head>
   <body>
     
-      <nav id="navigationbar">
+      
+    <!--Navigation Bar on Top-->
+    <nav id="navigationbar">
         <span class="open-slide">
             <!--Slide bar button-->
             <a href="#" onclick="openslidemenu()">
@@ -26,6 +30,7 @@
             <!--Links-->
         <ul class="navbar-nav">
             <li><a href="#"><span id="foss">Foss</span><span id="mec">Mec</span></a></li>
+	        <!--<li id='credits' style='padding-left:10px;'></li>-->
             <li><a href="#">How To Use</a></li>
             <li><a href="#">Credits</a></li>
             <li><a href="#">Contacts</a></li>
@@ -33,19 +38,29 @@
         </ul>
     </nav>
       
-      <div id="slidemenu" class="side-menu">
+    
+      
+    <!--SlideMenu On the Side-->
+    <div id="slidemenu" class="side-menu">
           <a href="#" class="close-btn" onclick="closeslidemenu()">&times;</a>
           <a href="#" id="fossmec"><span id="foss">Foss</span><span id="mec">Mec</span></a>
           <a href="#">How To Use</a>
           <a href="#">Credits</a>
           <a href="#">Contacts</a>
           <a href="#">Logout</a>
-      </div>
+    </div>
+    
+    
+    
+    <!--Credit Box-->
     <div id="creditDiv">
         Credits: <span id="credit-value">12</span>
     </div>
       
-      <div class="container">
+    
+    
+    <!--History Container-->
+    <div class="container">
         <ul class="histrory-tags">
             <li><a href="#"><img src="Images/pdf1.jpg" id="pdf"><span id="history">History One</span></a></li>
             <li><a href="#"><img src="Images/pdf1.jpg" id="pdf"><span id="history">History Two</span></a></li>
@@ -57,25 +72,28 @@
             <li><a href="#"><img src="Images/pdf1.jpg" id="pdf"><span id="history">History Eight</span></a></li>
             <li><a href="#"><img src="Images/pdf1.jpg" id="pdf"><span id="history">History Nine</span></a></li>
         </ul>
-      </div>
+    </div>
     
+    
+    
+    <!--PrintNew Button-->
       <div id="printDiv">
         <a class="waves-effect waves-light btn" id="printButton">Print New</a> 
-    </div>
-      
-      
-      
-      <script>
+      </div>
+
+    
+    
+    <!--Javascript-->
+    <script>
+        
         function openslidemenu(){
             document.getElementById("slidemenu").style.width= '250px';
         }
+        
         function closeslidemenu(){
             document.getElementById("slidemenu").style.width= '0px';
         }
-      </script>
-  </body>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script src="../js/javascript.js"></script>
-    
+    </script>
+  
+    </body>
 </html>

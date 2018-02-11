@@ -170,8 +170,8 @@ body{
 }
 @media(max-width:568px){
     .navbar-nav{display: none}
-   /* #navigationbar{height: 50px}*/
-    /*#creditDiv{height: 17%;width: 70%;font-size: 20px;}*/
+    #creditDiv{height: 50px;position: fixed;right: 0.6em;top: 2px;}
+    .container{top:6em;}
 }
 
 @media(min-width:568px){
