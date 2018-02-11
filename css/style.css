@@ -7,13 +7,13 @@ body{
 }
 #loginDiv{
     text-align: center;
-    height: 200px;;
+    height: 200px;
     width: 60%;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 10%;
     margin-left: -30%;
-    margin-top: -100px;
+    margin-top: -20px;
 }
 #registerDiv{
     text-align: center;
@@ -21,9 +21,9 @@ body{
     width: 60%;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 10%;
     margin-left: -30%;
-    margin-top: -100px;
+    margin-top: -20px;
 }
 #creditDiv{
     position: fixed;
@@ -60,4 +60,21 @@ body{
     position: fixed;
     right: 30px;
     bottom: 30px;
+}
+#collegeDiv{
+    text-align: center;
+    height: 40%;
+    width: 100%;
+    position: fixed;
+    left:0px;
+    bottom:0px;
+    overflow: hidden;
+    background-image:url("../assets/mec.png"); 
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+@media (max-width:520px){
+    #collegeDiv{
+        background-image: none;
+    }
 }
