@@ -116,7 +116,7 @@ body{
 
 }
 #printButton{
-    width: 67%;
+    width: 50%;
 }
 
 .container{
@@ -126,15 +126,15 @@ body{
     left: 0;
     right: 0;
     bottom: 2em;
-    /*width: 90%; */
+    width: 78%;
     border-top: 2px solid #424242;
-    border-radius: 5px;
+    border-radius: 8px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .container li{
-    padding:5px;
+    padding:2px;
     padding-top: 10px;
     padding-left: 10px;
     font-size: 18px;
