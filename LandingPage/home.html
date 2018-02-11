@@ -27,11 +27,12 @@
         </nav>
 
         <div id="side-menu" class="side-nav">
-            <a href="#" class="close-btn" onclick="closesidemenu()">&times;</a>
+          <a href="#" class="close-btn" onclick="closesidemenu()">&times;</a>
             <a href="#"><span id="foss">Foss</span><span id="mec">Mec</span></a>
             <a href="#">Sign Up/login</a>
             <a href="#">How To Use</a>
             <a href="#">Contact Us</a>
+
         </div>
 
 
@@ -51,17 +52,6 @@
             function closesidemenu(){
                 document.getElementById("side-menu").style.width="0px";
             }
-            
-            function myFunction(x) {
-                if (x.matches) { // If media query matches
-                document.getElementById("Heading").innerHTML= "PrintU!";
-                }
-    
-            }
-
-            var x = window.matchMedia("min-width: 100px")
-            myFunction(x) 
-            x.addListener(myFunction) 
 
         </script>
     </body>

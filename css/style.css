@@ -56,3 +56,8 @@ body{
     margin-left: -30%;
     margin-top: -100px;
 }
+#adminLogout{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+}
