@@ -20,8 +20,8 @@ body{
     height: 200px;
     width: 60%;
     position: absolute;
-    top: 50%;
-    left: 10%;
+    top: 10%;
+    left: 50%;
     margin-left: -30%;
     margin-top: -20px;
 }
@@ -73,7 +73,7 @@ body{
     background-position: center center;
     background-repeat: no-repeat;
 }
-@media (max-width:520px){
+@media (max-height:520px){
     #collegeDiv{
         background-image: none;
     }
