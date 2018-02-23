@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--<meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>-->
+    <title>Print Ur Paper</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">        
+    <link rel="stylesheet" href="/public/css/home_style.css">
+  </head>
+    
+    <body>
+
+<!-- Navigation Bar -->        
+        <nav class="navbar">
+            <span class="open-slide">
+                <a href="#" onclick="openslidemenu()">
+                    <!--Ignore it it's copy and paste XD-->
+                    <svg width="30" height="30">
+                        <path d="M0,5 30,5" stroke="#fff" 
+                        stroke-width="5"/>
+                        <path d="M0,14 30,14" stroke="#fff" 
+                        stroke-width="5"/>
+                        <path d="M0,23 30,23" stroke="#fff" 
+                        stroke-width="5"/>
+                    </svg>
+                </a>
+            </span>
+            <ul class="navbar-nav">
+                <a href="#"><span id="foss">Foss</span><span id="mec">Mec</span></a>
+            </ul>
+        </nav>
+
+        <div id="side-menu" class="side-bar">
+          <a href="#" class="close-btn" onclick="closesidemenu()">&times;</a>
+            <a href="#"><span id="foss">Foss</span><span id="mec">Mec</span></a>
+            <a href="#">Sign Up/login</a>
+            <a href="#">How To Use</a>
+            <a href="#">Contact Us</a>
+
+        </div>
+
+
+<!--Full Screen Page -->
+        <div id="printu">
+            <div id="Heading">Welcome To PrintU!</div>
+            <div id="content">Taking Printouts has never been this easy!  Go on...Try out our app by clicking below</div>
+            <button class="waves-effect waves-light btn" onclick="window.location.href='/login.html'">Print</button>
+        </div>
+        
+
+<!--Javascript-->
+        <script>
+            function openslidemenu(){
+                document.getElementById("side-menu").style.width="250px";
+            }
+            function closesidemenu(){
+                document.getElementById("side-menu").style.width="0px";
+            }
+
+        </script>
+    </body>
+
+</html>
