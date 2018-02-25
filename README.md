@@ -5,8 +5,7 @@ Team Members:
 2.Joyal A Johney  
 3.Vivek R  
 4.Ashmi  
-5.Srinidhi  
-6.Aswin G  
+5.Srinidhi   
 
 
 ## To run the app on your local machine
