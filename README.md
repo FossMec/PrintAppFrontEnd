@@ -11,5 +11,7 @@ Team Members:
 ## To run the app on your local machine
 
 1.Run "apt-get install nodejs" or install nodejs on windows
+
 2.Goto the project folder and run "npm install"
+
 3.Run "npm start"
