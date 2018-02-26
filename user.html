@@ -123,21 +123,21 @@
    <!--History Container-->
     <div class="container">
         <ul class="histrory-tags">
-            <li><a href="#"><img src="public/assets/pdf1.jpg" id="pdf"><span id="history">History One</span></a></li>
-            <li><a href="#"><img src="public/assets/pdf1.jpg" id="pdf"><span id="history">History Two</span></a></li>
-            <li><a href="#"><img src="public/assets/pdf1.jpg" id="pdf"><span id="history">History Three</span></a></li>
-            <li><a href="#"><img src="public/assets/pdf1.jpg" id="pdf"><span id="history">History Four</span></a></li>
-            <li><a href="#"><img src="public/assets/pdf1.jpg" id="pdf"><span id="history">History Five</span></a></li>
-            <li><a href="#"><img src="public/assets/pdf1.jpg" id="pdf"><span id="history">History Six</span></a></li>
-            <li><a href="#"><img src="public/assets/pdf1.jpg" id="pdf"><span id="history">History Seven</span></a></li>
-            <li><a href="#"><img src="public/assets/pdf1.jpg" id="pdf"><span id="history">History Eight</span></a></li>
-            <li><a href="#"><img src="public/assets/pdf1.jpg" id="pdf"><span id="history">History Nine</span></a></li>
+            <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History One</span></a></li>
+            <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History Two</span></a></li>
+            <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History Three</span></a></li>
+            <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History Four</span></a></li>
+            <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History Five</span></a></li>
+            <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History Six</span></a></li>
+            <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History Seven</span></a></li>
+            <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History Eight</span></a></li>
+            <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History Nine</span></a></li>
         </ul>
     </div>
     
 
 	<a id='upload-button' class="waves-effect waves-light btn red">    Print New</a>
-	<input type="file" id="file-to-upload" accept="application/pdf" />
+	<input type="file" action = "http://127.0.0.1:3000/file_upload" method = "POST" id="file-to-upload" accept="application/pdf" />
 
 <div id="pdf-main-container">
 	<div id="pdf-loader">Loading document ...</div>
@@ -172,7 +172,7 @@
 		$("#upload-button").addClass("disabled");
 		}
 	//UPLOAD PDF + PREVIEW
-		var __PDF_DOC,
+	var __PDF_DOC,
 	__CURRENT_PAGE,
 	__TOTAL_PAGES,
 	__PAGE_RENDERING_IN_PROGRESS = 0,
