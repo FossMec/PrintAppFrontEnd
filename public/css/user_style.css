@@ -5,7 +5,7 @@ body{
     padding: 0px;
     margin: 0;
     background-color: #f4f4f4;
-    background-image: url(Images/grass.jpeg);
+    background-image: url(../assets/grass.jpeg);
     background-size:cover;
     opacity:1;
     height: 100vh;
