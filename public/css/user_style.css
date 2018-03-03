@@ -1,0 +1,186 @@
+body{
+    font-family: Arial, Helvetica;
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0px;
+    margin: 0;
+    background-color: #f4f4f4;
+    background-image: url(../assets/test1.jpeg);
+    background-size:cover;
+    opacity:1;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#navigationbar{
+    background-color: rgba(0,0,0,0.72);
+    height:55px;
+    overflow: hidden;
+}
+
+#navigationbar a{
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 5px 19px;
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+#Print-btn{
+    position: fixed;
+    right: 1.5em;
+    bottom: 2em;;
+}
+
+#logout{
+    position: absolute;
+    right:30px;
+    padding: 0 19px;
+}
+
+#navigationbar a:hover{
+    background-color: #ddd;
+    color: #000;
+}
+
+.side-menu{
+    height: 100%;
+    width: 0px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #111;
+    opacity: 0.9;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.side-menu a{
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ccc;
+    display: block;
+    transition: 0.3s;
+}
+.side-menu a:hover{
+    background-color: #ddd;
+    color:#000;
+}
+
+.side-menu .close-btn{
+    position: absolute;
+    top: 0;
+    right: 22px;
+    font-size: 30px;
+    margin-left: 50px;
+}
+#creditDiv{
+    position: fixed;
+    right: 0.6em;
+    top: 62.8px;
+    background-color:#4db6ac;
+    opacity: 1.1;
+    color: #f4f4f4;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 3px;
+    /*z-index: 1;*/
+    padding: 10px;
+    padding-top: 7px;
+    height: 2em;
+}
+
+#foss{
+    color: #d32f2f;
+    font-size: 30px;
+    padding-bottom: 7px;
+}
+
+#mec{
+    font-size:30px;
+    padding-bottom: 7px;
+    color: #e0e0e0;
+}
+
+#mec:hover{
+    color: #000;
+}
+#printDiv{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    padding: 20px;
+
+}
+#printButton{
+    width: 50%;
+}
+
+.container{
+    background-color: #fafafa;
+    position:fixed;
+    top: 8.5em;
+    left: 0;
+    right: 0;
+    bottom: 2.5em;
+    width: 78%;
+    border-top: 2px solid #424242;
+    border-radius: 8px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.container li{
+    padding:2px;
+    padding-top: 10px;
+    padding-left: 10px;
+    font-size: 18px;
+    position: relative;
+    border-bottom: 0.3px solid grey;
+}
+
+#history{
+    position: absolute;
+    left: 70px;
+    top: 17px;
+}
+
+#pdf{
+    width: 47px;
+    height: 47px;
+}
+
+.container li:after{
+    content: '';
+    display: block;
+    position: absolute;
+    width: 4%;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    border: 2px solid white;
+}
+
+.container li:hover{
+    border-bottom-color: #4db6ac;
+    border-bottom-width: 1px;
+}
+@media(max-width:568px){
+    .navbar-nav{display: none}
+    #creditDiv{height: 40px;position: fixed;right: 0.6em;top: 0.3em;padding-top: 3px;opacity: 0.99;}
+    .container{top:6em;}
+}
+
+@media(min-width:568px){
+    .open-slide{display: none}
+    
+}

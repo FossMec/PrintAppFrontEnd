@@ -1,0 +1,23 @@
+{
+  "name": "wirelessprintingapp",
+  "version": "1.0.0",
+  "description": "Team Members:   1.Ashwin M Prabhu   2.Joyal A Johney   3.Vivek R   4.Ashmi   5.Srinidhi   6.Aswin G",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aswin1999/WirelessPrintingApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aswin1999/WirelessPrintingApp/issues"
+  },
+  "homepage": "https://github.com/aswin1999/WirelessPrintingApp#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "morgan": "^1.7.0"
+  }
+}
