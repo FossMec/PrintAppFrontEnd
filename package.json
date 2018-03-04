@@ -17,7 +17,9 @@
   },
   "homepage": "https://github.com/aswin1999/WirelessPrintingApp#readme",
   "dependencies": {
+    "crypto": "^1.0.1",
     "express": "^4.14.0",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "pg": "^7.4.1"
   }
 }

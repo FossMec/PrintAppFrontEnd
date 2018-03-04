@@ -94,7 +94,9 @@
                 </svg>
             </a>
         </span>
-            <!--Links-->
+            
+        
+        <!--Links-->
         <ul class="navbar-nav">
             <li><a href="#"><span id="foss">Foss</span><span id="mec">Mec</span></a></li>
 	        <!--<li id='credits' style='padding-left:10px;'></li>-->
@@ -134,7 +136,7 @@
             <li><a href="#"><img src="/public/assets/pdf1.jpg" id="pdf"><span id="history">History Nine</span></a></li>
         </ul>
     </div>
-    
+
 
 	<a id='upload-button' class="waves-effect waves-light btn red">    Print New</a>
 	<input type="file" action = "http://127.0.0.1:3000/file_upload" method = "POST" id="file-to-upload" accept="application/pdf" />
@@ -160,6 +162,7 @@
 	var CREDITS = 12;
 	$("#upload-button").click(function(){$(".container").hide();});
 	document.getElementById("credit-value").innerHTML = CREDITS;
+
         function openslidemenu(){
             document.getElementById("slidemenu").style.width= '250px';
         }

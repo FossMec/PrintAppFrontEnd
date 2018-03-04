@@ -29,6 +29,12 @@ body{
     font-size: 20px;
 }
 
+#Print-btn{
+    position: fixed;
+    right: 1.5em;
+    bottom: 2em;;
+}
+
 #logout{
     position: absolute;
     right:30px;
@@ -117,9 +123,9 @@ body{
 }
 
 .container{
-    background-color: white;
+    background-color: #fafafa;
     position:fixed;
-    top: 8em;
+    top: 8.5em;
     left: 0;
     right: 0;
     bottom: 2em;
