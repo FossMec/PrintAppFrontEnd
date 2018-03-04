@@ -5,7 +5,7 @@ body{
     padding: 0px;
     margin: 0;
     background-color: #f4f4f4;
-    background-image: url(../assets/test1.jpeg);
+    background-image: url(/public/assets/grass.jpeg);
     background-size:cover;
     opacity:1;
     height: 100vh;
@@ -13,7 +13,7 @@ body{
 }
 
 #navigationbar{
-    background-color: rgba(0,0,0,0.72);
+    background-color: #3b5998;
     height:55px;
     overflow: hidden;
 }
@@ -121,9 +121,6 @@ body{
     padding: 20px;
 
 }
-#printButton{
-    width: 50%;
-}
 
 .container{
     background-color: #fafafa;
@@ -131,16 +128,16 @@ body{
     top: 8.5em;
     left: 0;
     right: 0;
-    bottom: 2.5em;
-    width: 78%;
+    bottom: 2em;
+    /*width: 90%; */
     border-top: 2px solid #424242;
-    border-radius: 8px;
+    border-radius: 5px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
 .container li{
-    padding:2px;
+    padding:5px;
     padding-top: 10px;
     padding-left: 10px;
     font-size: 18px;
@@ -176,11 +173,73 @@ body{
 }
 @media(max-width:568px){
     .navbar-nav{display: none}
-    #creditDiv{height: 40px;position: fixed;right: 0.6em;top: 0.3em;padding-top: 3px;opacity: 0.99;}
+    #creditDiv{height: 50px;position: fixed;right: 0.6em;top: 2px;}
     .container{top:6em;}
 }
 
 @media(min-width:568px){
     .open-slide{display: none}
     
+}
+#upload-button {
+	width: 150px;
+	display: block;
+	margin: 20px auto;
+}
+
+#file-to-upload {
+	display: none;
+}
+
+#pdf-main-container {
+	width: 400px;
+	margin: 20px auto;
+}
+
+#pdf-loader {
+	display: none;
+	text-align: center;
+	color: #999999;
+	font-size: 13px;
+	line-height: 100px;
+	height: 100px;
+}
+
+#pdf-contents {
+	display: none;
+}
+
+#pdf-meta {
+	overflow: hidden;
+	margin: 0 0 20px 0;
+}
+
+#pdf-buttons {
+	float: left;
+}
+
+#page-count-container {
+	float: right;
+}
+
+#pdf-current-page {
+	display: inline;
+}
+
+#pdf-total-pages {
+	display: inline;
+}
+
+#pdf-canvas {
+	border: 1px solid rgba(0,0,0,0.2);
+	box-sizing: border-box;
+}
+
+#page-loader {
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	display: none;
+	color: #999999;
+	font-size: 13px;
 }
