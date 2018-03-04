@@ -16,7 +16,7 @@ Team Members:
 
 3.Run "npm start"
 
-##For database testing
+## For database testing
 
 1.Install Postgresql with username 'postgres' and password 'postgres' (use defualt port ie, 5432)
 
