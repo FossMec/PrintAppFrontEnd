@@ -16,23 +16,9 @@
             <div class="input-field col s6">
                 <input placeholder="Password" id="loginpassword" type="password" class="validate">
             </div>
-            <button class="waves-effect waves-light btn" id="loginButton">Login</button><br><br>
-            Not Registered Yet? <a id="registerNow">Register Here</a> <br>
-            <a id="forgotPassword">Forgot Password?</a>
-        </form>
-    </div>
-    <div id="registerDiv">
-        <form class="form">
-            <div class="input-field">
-                <input placeholder="Username" id="registerusername" type="text" class="validate">
-            </div>
-            <div class="input-field">
-                <input placeholder="Phone" id="registerphone" type="number" class="validate">
-            </div>
-            <div class="input-field col s6">
-                <input placeholder="Password" id="registerpassword" type="password" class="validate">
-            </div>
-            <button class="waves-effect waves-light btn" id="registerButton">Register</button>
+            <button class="waves-effect waves-light btn" type="submit" id="loginButton">Login</button><br><br>
+            Not Registered Yet? <a id="registerNow" href="/register.html">Register Here</a> <br>
+            <a id="forgotPassword">Forgot Password?</a><br><span id="errorMsg"></span>
         </form>
     </div>
     <div id="collegeDiv">
@@ -40,5 +26,5 @@
   </body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-  <script src="/public/js/javascript.js"></script>
+  <script src="/public/js/loginjs.js"></script>
 </html>

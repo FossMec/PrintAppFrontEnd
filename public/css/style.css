@@ -52,14 +52,14 @@ body{
     width: 60%;
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 30%;
     margin-left: -30%;
-    margin-top: -100px;
+    margin-top: -60px;
 }
 #adminLogout{
     position: fixed;
     right: 30px;
-    bottom: 30px;
+    top: 30px;
 }
 #collegeDiv{
     text-align: center;
@@ -72,6 +72,13 @@ body{
     background-image:url("/public/assets/mec.png"); 
     background-position: center center;
     background-repeat: no-repeat;
+}
+
+#errorMsg{
+    color: red;
+}
+#successMsg{
+    color: green;
 }
 @media (max-height:520px){
     #collegeDiv{
