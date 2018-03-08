@@ -1,8 +1,10 @@
-var express = require('express');
-var path = require('path');
-var Pool = require('pg').Pool;
-var crypto = require('crypto');
-var bodyParser = require('body-parser');
+const express = require('express');
+const path = require('path');
+const fs = require("fs");
+const bodyParser = require('body-parser');
+const Pool = require('pg').Pool;
+const crypto = require('crypto');
+
 
 var app = express();
 
@@ -34,6 +36,12 @@ app.get('/login.html', function (req, res) {
 app.get('/register.html', function (req, res) {
   res.sendFile(path.join(__dirname,'register.html'));
 });
+app.get('/public/js/pdf.js', function (req, res) {
+  res.sendFile(path.join(__dirname,'public', 'js', 'pdf.js'));
+});
+app.get('/public/js/pdf.worker.js', function (req, res) {
+  res.sendFile(path.join(__dirname,'public', 'js', 'pdf.worker.js'));
+});
 app.get('/public/css/style.css', function (req, res) {
   res.sendFile(path.join(__dirname,'public', 'css', 'style.css'));
 });
@@ -64,7 +72,9 @@ app.get('/public/assets/pdf1.jpg', function (req, res) {
 app.get('/public/css/user_style.css', function (req, res) {
   res.sendFile(path.join(__dirname,'public', 'css', 'user_style.css'));
 });
-
+app.get('/public/js/pdf_edit.js', function (req, res) {
+  res.sendFile(path.join(__dirname,'public', 'js', 'pdf_edit.js'));
+});
 app.get('/testdb',function(req,res){
   pool.query('SELECT * FROM users',function(err,result){
     if(err){
@@ -72,7 +82,7 @@ app.get('/testdb',function(req,res){
     } else {
       res.send(JSON.stringify(result.rows));
     }
-  })
+  });
 });
 
 function hash(input,salt){
@@ -97,7 +107,7 @@ app.post('/create-user',function(req,res){
       res.status(200).send('user created');
       console.log('user created');
       console.log(result);
-    }   
+    }
   });
 });
 app.post('/login-user',function(req,res){
@@ -121,10 +131,10 @@ app.post('/login-user',function(req,res){
         res.status(403).send('password invalid');
         console.log('Password invalid');
       }
-        
+
       }
-      
-    }   
+
+    }
   });
 });
 app.post('/add-credits',function(req,res){
@@ -141,7 +151,7 @@ app.post('/add-credits',function(req,res){
         credits = parseInt(credits) + parseInt(result.rows[0].credits);
         console.log(credits,result.rows[0].credits);
       }
-        
+
       }
   });
   pool.query('UPDATE "users" SET credits = $1  WHERE phone = $2',[credits,phone],function(err,result){
@@ -151,10 +161,9 @@ app.post('/add-credits',function(req,res){
           res.status(200).send('Credits added')
           console.log('credits added',credits);
       }
-    
-      
-    
+
+
+
   });
 });
 app.listen(3000);
-
