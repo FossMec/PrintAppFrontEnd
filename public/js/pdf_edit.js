@@ -1,4 +1,3 @@
-
 $("#upload-button").click(function(){$(".container").hide();});
 $("#pdf-settings").hide();
 

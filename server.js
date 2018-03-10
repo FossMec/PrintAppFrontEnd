@@ -6,6 +6,15 @@ const Pool = require('pg').Pool;
 const crypto = require('crypto');
 const session = require('express-session');
 
+var options = {
+    media: 'Custom.200x600mm',
+    n: 3
+};
+
+// Get available printers list
+console.log("Available Printers " + Printer.list(1));
+
+var printer = new Printer(`${Printer.list(1)}`);
 
 
 var app = express();
