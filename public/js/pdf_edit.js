@@ -1,4 +1,4 @@
-var CREDITS = 12;
+var CREDITS = 2;
 var from = 1;
 var to;
 $("#upload-button").click(function(){$(".container").hide();});

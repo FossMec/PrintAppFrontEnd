@@ -4,7 +4,18 @@ const fs = require("fs");
 const bodyParser = require('body-parser');
 const Pool = require('pg').Pool;
 const crypto = require('crypto');
+const events = require('events');
+const Printer = require('node-printer');
 
+var options = {
+    media: 'Custom.200x600mm',
+    n: 3
+};
+
+// Get available printers list
+console.log("Available Printers " + Printer.list(1));
+
+var printer = new Printer(`${Printer.list(1)}`);
 
 var app = express();
 
@@ -161,9 +172,23 @@ app.post('/add-credits',function(req,res){
           res.status(200).send('Credits added')
           console.log('credits added',credits);
       }
-
-
-
   });
 });
+
+function print (){
+  var fileBuffer = fs.readFileSync('pdf-temp/temp.pdf');
+  var jobFromBuffer = printer.printBuffer(fileBuffer);
+
+// Cancel a job
+//jobFromFile.cancel();
+
+// Listen events from job
+  jobFromBuffer.once('sent', function() {
+      jobFromBuffer.on('completed', function() {
+          console.log('Job ' + jobFromBuffer.identifier + ' has been printed');
+          jobFromBuffer.removeAllListeners();
+        });
+      });
+}
+print();
 app.listen(3000);
