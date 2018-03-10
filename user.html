@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>UserPage</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/public/css/user_style.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/user_style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -45,7 +45,7 @@
     </nav>
 
     <!--SlideMenu On the Side-->
-    <div id="slidemenu" class="side-menu">
+    <div id="slidemenu" class="side-bar">
           <a href="#" class="close-btn" onclick="closeslidemenu()">&times;</a>
           <a href="#" id="fossmec"><span id="foss">Foss</span><span id="mec">Mec</span></a>
           <a href="#">How To Use</a>
@@ -58,7 +58,7 @@
 
     <!--Credit Box-->
     <div id="creditDiv">
-        Credits: <span id="credit-value"></span>
+        Credits: <span id="credit-value">12</span>
     </div>
 
 
@@ -70,11 +70,11 @@
     </div>
 
 
-      </div>
+    </div>
 	<input type="file" action = "http://127.0.0.1:3000/file_upload" method = "POST" id="file-to-upload" accept="application/pdf" />
-<div class='row'>
-<div class='col s4'>
-<div id="pdf-main-container">
+    <div class='row'>
+    <div class='col s4'>
+    <div id="pdf-main-container">
 	<div id="pdf-loader">Loading document ...</div>
 	<div id="pdf-contents">
 		<div id="pdf-meta">
@@ -84,14 +84,14 @@
 
 			</div>
 		</div>
-		<canvas id="pdf-canvas" width=500% style='overflow-x: auto; overflow-y: auto'></canvas>
-		<div id="page-loader">Loading page ...</div>
-		<font color='white' class='btn disabled'> <div id="page-count-container">Page <div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div> </font>
+	<canvas id="pdf-canvas" width=500% style='overflow-x: auto; overflow-y: auto'></canvas>
+	<div id="page-loader">Loading page ...</div>
+	<font color='white' class='btn disabled'> <div id="page-count-container">Page <div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div> </font>
 	</div>
-</div>
-</div>
-<div class='col s2'>
-<form class='form' id='pdf-settings'>
+    </div>
+    </div>
+    <div class='col s2'>
+    <form class='form' id='pdf-settings'>
     <p>
       <input name="group1" type="radio" id="color" />
       <label for="color">Color</label>
@@ -117,13 +117,28 @@
     </div>
     <button type="button" class='btn' id='update'>Update</button>
     <input type="submit" class='btn' value="UPLOAD" id='submit'>
-</form>
-</div>
-</div>
-<a id='upload-button' class="btn-floating btn-large waves-effect waves-light "><i class="material-icons">add</i></a>
+    </form>
+    </div>
+    </div>
+    <a id='upload-button' class="btn-floating btn-large waves-effect waves-light "><i class="material-icons">add</i></a>
+
+
+
+    <!--Javascript-->
+    <script>
+        function openslidemenu(){
+            document.getElementById("slidemenu").style.width="250px";
+        }
+        function closeslidemenu(){
+            document.getElementById("slidemenu").style.width="0px";
+        }
+
+    </script>
+
+
 </body>
-<script src="/public/js/userjs.js"></script>
-<script src="/public/js/pdf.js"></script>
-<script src="/public/js/pdf.worker.js"></script>
-<script src="/public/js/pdf_edit.js"></script>
+<script src="./public/js/userjs.js"></script>
+<script src="./public/js/pdf.js"></script>
+<script src="./public/js/pdf.worker.js"></script>
+<script src="./public/js/pdf_edit.js"></script>
 </html>

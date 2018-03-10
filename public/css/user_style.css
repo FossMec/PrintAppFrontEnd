@@ -93,11 +93,10 @@ body{
 }
 
 #navigationbar a:hover{
-    background-color: #ddd;
-    color: #000;
+    background-color: rgba(0,0,0,0.85);
 }
 
-.side-menu{
+.side-bar{
     height: 100%;
     width: 0px;
     position: fixed;
@@ -111,7 +110,7 @@ body{
     transition: 0.5s;
 }
 
-.side-menu a{
+.side-bar a{
     padding: 10px 10px 10px 30px;
     margin-bottom: 20px;
     text-decoration: none;
@@ -120,12 +119,11 @@ body{
     display: block;
     transition: 0.3s;
 }
-.side-menu a:hover{
-    background-color: #ddd;
-    color:#000;
+.side-bar a:hover{
+    background-color: rgba(0,0,0,0.85);
 }
 
-.side-menu .close-btn{
+.side-bar .close-btn{
     position: absolute;
     top: 0;
     right: 22px;
@@ -160,9 +158,6 @@ body{
     color: #e0e0e0;
 }
 
-#mec:hover{
-    color: #000;
-}
 #printDiv{
     position: fixed;
     bottom: 0px;
@@ -217,6 +212,12 @@ body{
     border: 2px solid white;
 }
 
+#upload-button{
+    position: fixed;
+    bottom: 2em;
+    right: 2em;
+}
+
 .container li:hover{
     border-bottom-color: #4db6ac;
     border-bottom-width: 1px;
@@ -229,5 +230,5 @@ body{
 
 @media(min-width:568px){
     .open-slide{display: none}
-
 }
+
