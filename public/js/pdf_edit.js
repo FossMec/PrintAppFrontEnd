@@ -1,20 +1,7 @@
-var CREDITS = 12;
-var from = 1;
-var to;
+
 $("#upload-button").click(function(){$(".container").hide();});
 $("#pdf-settings").hide();
-document.getElementById("credit-value").innerHTML = CREDITS;
 
-      function openslidemenu(){
-          document.getElementById("slidemenu").style.width= '250px';
-      }
-      function closeslidemenu(){
-          document.getElementById("slidemenu").style.width= '0px';
-      }
-if(CREDITS == 0){
-  window.alert("Credits: "+ CREDITS + "\nInsufficient Credits");
-  $("#upload-button").addClass("disabled");
-}
 var __FILE;
 //UPLOAD PDF + PREVIEW
 var __PDF_DOC,

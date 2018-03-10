@@ -4,10 +4,15 @@ const fs = require("fs");
 const bodyParser = require('body-parser');
 const Pool = require('pg').Pool;
 const crypto = require('crypto');
+const session = require('express-session');
+
 
 
 var app = express();
-
+app.use(session({
+  secret:"someRandomValue",
+  cookie:{maxAge: 1000*60*60*24*30}
+}));
 var config = {
   user:'postgres',
   password: 'postgres',
@@ -22,7 +27,11 @@ app.use(bodyParser.json());
 var pool = new Pool(config);
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname,'landing.html'));
+  if(req.session && req.session.auth && req.session.auth.userID){
+    res.status(200).redirect('/user.html');
+  }else{
+    res.status(403).sendFile(path.join(__dirname,'landing.html'));
+  }
 });
 app.get('/public/css/home_style.css', function (req, res) {
   res.sendFile(path.join(__dirname,'public', 'css', 'home_style.css'));
@@ -61,10 +70,18 @@ app.get('/public/js/registerjs.js', function (req, res) {
   res.sendFile(path.join(__dirname,'public', 'js', 'registerjs.js'));
 });
 app.get('/admin.html', function (req, res) {
-  res.sendFile(path.join(__dirname,'admin.html'));
+  if(req.session && req.session.auth && req.session.auth.userID){
+    res.status(200).sendFile(path.join(__dirname,'admin.html'));
+  }else{
+    res.status(403).redirect('/login.html');
+  }
 });
 app.get('/user.html', function (req, res) {
-  res.sendFile(path.join(__dirname,'user.html'));
+  if(req.session && req.session.auth && req.session.auth.userID){
+    res.status(200).sendFile(path.join(__dirname,'user.html'));
+  }else{
+    res.status(403).redirect('/login.html');
+  }
 });
 app.get('/public/assets/pdf1.jpg', function (req, res) {
   res.sendFile(path.join(__dirname,'public', 'assets', 'pdf1.jpg'));
@@ -74,6 +91,9 @@ app.get('/public/css/user_style.css', function (req, res) {
 });
 app.get('/public/js/pdf_edit.js', function (req, res) {
   res.sendFile(path.join(__dirname,'public', 'js', 'pdf_edit.js'));
+});
+app.get('/public/js/userjs.js', function (req, res) {
+  res.sendFile(path.join(__dirname,'public', 'js', 'userjs.js'));
 });
 app.get('/testdb',function(req,res){
   pool.query('SELECT * FROM users',function(err,result){
@@ -125,7 +145,8 @@ app.post('/login-user',function(req,res){
         var salt = dbstr.split('$')[2];
         var hashedPass = hash(password,salt);
         if(hashedPass==dbstr){
-          res.status(200).send('user logged in');
+          req.session.auth = {userID:result.rows[0].id};
+          res.status(200).send("user logged in");
           console.log('user logged in');
       }else{
         res.status(403).send('password invalid');
@@ -137,6 +158,21 @@ app.post('/login-user',function(req,res){
     }
   });
 });
+
+/*app.get('/check-login',function(req,res){
+  if(req.session && req.session.auth && req.session.auth.userID){
+    res.status(200).send("Logged in");
+  }else{
+    res.status(403).send("Not logged in");
+  }
+});
+*/
+app.get('/logout',function(req,res){
+  delete req.session.auth;
+  res.status(200).redirect('/login.html');
+});
+
+
 app.post('/add-credits',function(req,res){
   var phone = req.body.phone;
   var credits = req.body.credits;
@@ -150,20 +186,31 @@ app.post('/add-credits',function(req,res){
       }else{
         credits = parseInt(credits) + parseInt(result.rows[0].credits);
         console.log(credits,result.rows[0].credits);
+        pool.query('UPDATE "users" SET credits = $1  WHERE phone = $2',[credits,phone],function(err,result){
+          if(err){
+            res.status(500).send(err.toString());
+          }else{
+                res.status(200).send('Credits added')
+                console.log('credits added',credits);
+            }
+      
+      
+      
+        });
       }
 
       }
   });
-  pool.query('UPDATE "users" SET credits = $1  WHERE phone = $2',[credits,phone],function(err,result){
+ 
+});
+
+app.get('/fetch-user-data',function(req,res){
+  pool.query('SELECT * FROM users WHERE id=$1',[req.session.auth.userID],function(err,result){
     if(err){
       res.status(500).send(err.toString());
-    }else{
-          res.status(200).send('Credits added')
-          console.log('credits added',credits);
-      }
-
-
-
+    } else {
+      res.status(200).send(JSON.stringify({credits:result.rows[0].credits,history:result.rows[0].history}));
+    }
   });
 });
 app.listen(3000);
