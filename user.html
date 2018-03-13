@@ -66,7 +66,7 @@
     </div>
 
 
-    
+
 	    <input type="file" action = "http://127.0.0.1:3000/file_upload" method = "POST" id="file-to-upload" accept="application/pdf" />
         <div class='row' id="holder">
             <div class='col s4'>
@@ -79,10 +79,10 @@
                                 <a id='pdf-next' class="waves-effect waves-light btn"><i class="material-icons">arrow_forward</i>Next</a>
                             </div>
 	                    </div>
-                        
+
                         <!--PDF Canvas-->
                         <canvas id="pdf-canvas"></canvas>
-    
+
                         <div id="page-loader">Loading page ...</div>
                         <!--Showing No of Pages-->
                         <font color='white' class='btn disabled'>
@@ -93,7 +93,7 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class='col s2' id="options-box">
                 <form class='form' id='pdf-settings'>
                 <p>
@@ -109,30 +109,29 @@
                     <input id="copies" type="text" name='copies' value='1' />
                     <label for="copies"></label>
                 </div>
-    
+
                 From
                 <div class="input-field">
                 <input id="from" type="text" name='from' value='1' />
                 <label for="from"></label>
                 </div>
-    
+
                 To
                 <div class="input-field">
                 <input id="to" type="text" name='to' value='1' />
                 <label for="to"></label>
                 </div>
-                
+
                 <!--Update and Upload Button-
                 <button type="button" class='btn' id="update" >UPDATE</button>
                 <input type="submit" class='btn' value="UPLOAD" id='submit' name='PDF'>-->
                 </form>
             </div>
         </div>
-        
-        
+
+
         <!--Pdf upload floating Button-->
         <a id='upload-button' class="btn-floating btn-large waves-effect waves-light "><i class="material-icons">add</i></a>
-
         <!--Javascript-->
     <script>
         var a = 0;
