@@ -12,6 +12,63 @@ body{
     overflow: hidden;
 }
 
+#file-to-upload {
+	display: none;
+}
+
+#pdf-main-container {
+	width: 400px;
+	margin: 20px auto;
+}
+
+#pdf-loader {
+	display: none;
+	text-align: center;
+	color: #999999;
+	font-size: 13px;
+	line-height: 100px;
+	height: 100px;
+}
+
+#pdf-contents {
+	display: none;
+}
+
+#pdf-meta {
+	overflow: hidden;
+	margin: 0 0 20px 0;
+}
+
+#pdf-buttons {
+	float: left;
+}
+
+#page-count-container {
+	float: right;
+}
+
+#pdf-current-page {
+	display: inline;
+}
+
+#pdf-total-pages {
+	display: inline;
+}
+
+#pdf-canvas {
+	border: 1px solid rgba(0,0,0,0.2);
+	box-sizing: border-box;
+}
+
+#page-loader {
+	height: 100px;
+	line-height: 100px;
+	text-align: center;
+	display: none;
+	color: #999999;
+	font-size: 13px;
+}
+
 #navigationbar{
     background-color: rgba(0,0,0,0.72);
     height:55px;
@@ -27,12 +84,6 @@ body{
     margin-left: 10px;
     text-decoration: none;
     font-size: 20px;
-}
-
-#Print-btn{
-    position: fixed;
-    right: 1.5em;
-    bottom: 2em;;
 }
 
 #logout{
@@ -119,10 +170,6 @@ body{
     right: 0px;
     text-align: center;
     padding: 20px;
-
-}
-#printButton{
-    width: 50%;
 }
 
 .container{
@@ -182,5 +229,5 @@ body{
 
 @media(min-width:568px){
     .open-slide{display: none}
-    
+
 }

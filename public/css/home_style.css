@@ -9,7 +9,7 @@ body{
     font-size: 17px;
     color:white;
     line-height: 1.6;
-    background-image: url(../assets/test1.jpeg);
+    background-image: url(/public/assets/test1.jpeg);
     background-size: cover;
     height: 100vh;
 }

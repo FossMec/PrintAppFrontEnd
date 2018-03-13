@@ -5,3 +5,4 @@ $("#registerNow").click(function(){
     $("#loginDiv").hide();
     $("#registerDiv").show();
 });
+
