@@ -1,20 +1,6 @@
-var CREDITS = 2;
-var from = 1;
-var to;
 $("#upload-button").click(function(){$(".container").hide();});
 $("#pdf-settings").hide();
-document.getElementById("credit-value").innerHTML = CREDITS;
 
-      function openslidemenu(){
-          document.getElementById("slidemenu").style.width= '250px';
-      }
-      function closeslidemenu(){
-          document.getElementById("slidemenu").style.width= '0px';
-      }
-if(CREDITS == 0){
-  window.alert("Credits: "+ CREDITS + "\nInsufficient Credits");
-  $("#upload-button").addClass("disabled");
-}
 var __FILE;
 //UPLOAD PDF + PREVIEW
 var __PDF_DOC,
@@ -101,4 +87,30 @@ if(to > __TOTAL_PAGES || to < from)
 }
 __CURRENT_PAGE = from;
 showPage(from);
+});
+
+
+
+
+$("#submit").click(function()
+{
+  console.log(__FILE);
+  $(this).file = __FILE;
+  console.log(this);
+  var file = $(this).get.file;
+  var formData = new FormData();
+  console.log(formData);
+
+  formData.append('PDF', file, file.name);
+  
+  $.ajax({
+    url: '/upload',
+    type: 'POST',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(data){
+        console.log('upload successful!');
+    }
+  });
 });
