@@ -14,9 +14,9 @@ var options = {
     n: 3
 };
 
-console.log("Available Printers " + Printer.list(1));
+// console.log("Available Printers " + Printer.list(1));
 
-var printer = new Printer(`${Printer.list(1)}`);
+// var printer = new Printer(`${Printer.list(1)}`);
 
 var app = express();
 app.use(session({

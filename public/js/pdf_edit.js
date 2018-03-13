@@ -94,11 +94,13 @@ showPage(from);
 
 $("#submit").click(function()
 {
-  //$("#file-to-upload").get(0).files[0]
-  var file = __FILE;
+  // var file = __FILE;
+  // var file= $('#file-to-upload').files;
+  var file = document.getElementById('file-to-upload').files[0];
+  console.log(file);
   var formData = new FormData();
 
-  formData.append('uploads[]', file);
+  formData.append('file', file);
   console.log(formData);
   $.ajax({
     url: '/upload',
