@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const Pool = require('pg').Pool;
 const crypto = require('crypto');
 const session = require('express-session');
+const formidable = require('formidable');
+
 
 var options = {
     media: 'Custom.200x600mm',
@@ -85,13 +87,19 @@ app.get('/admin.html', function (req, res) {
     res.status(403).redirect('/login.html');
   }
 });
+
+
 app.get('/user.html', function (req, res) {
+  res.status(200).sendFile(path.join(__dirname,'user.html'));
+
   if(req.session && req.session.auth && req.session.auth.userID){
     res.status(200).sendFile(path.join(__dirname,'user.html'));
   }else{
     res.status(403).redirect('/login.html');
   }
 });
+
+
 app.get('/public/assets/pdf1.jpg', function (req, res) {
   res.sendFile(path.join(__dirname,'public', 'assets', 'pdf1.jpg'));
 });
@@ -139,6 +147,9 @@ app.post('/create-user',function(req,res){
     }
   });
 });
+
+
+
 app.post('/login-user',function(req,res){
   var username = req.body.username;
   var password = req.body.password;
@@ -168,14 +179,18 @@ app.post('/login-user',function(req,res){
   });
 });
 
-/*app.get('/check-login',function(req,res){
+
+
+app.get('/check-login',function(req,res){
   if(req.session && req.session.auth && req.session.auth.userID){
     res.status(200).send("Logged in");
   }else{
     res.status(403).send("Not logged in");
   }
 });
-*/
+
+
+
 app.get('/logout',function(req,res){
   delete req.session.auth;
   res.status(200).redirect('/login.html');
@@ -221,5 +236,34 @@ app.get('/fetch-user-data',function(req,res){
       res.status(200).send(JSON.stringify({credits:result.rows[0].credits,history:result.rows[0].history}));
     }
   });
+});
+
+app.post('/upload', function(req, res){
+
+  // create an incoming form object
+  var form = new formidable.IncomingForm();
+
+  // store all uploads in the /uploads directory
+  form.uploadDir = path.join(__dirname, '/uploads');
+
+  // every time a file has been uploaded successfully,
+  // rename it to it's orignal name
+  form.on('file', function(field, file) {
+    fs.rename(file.path, path.join(form.uploadDir, file.name));
+  });
+
+  // log any errors that occur
+  form.on('error', function(err) {
+    console.log('An error has occured: \n' + err);
+  });
+
+  // once all the files have been uploaded, send a response to the client
+  form.on('end', function() {
+    res.end('success');
+  });
+
+  // parse the incoming request containing the form data
+  form.parse(req);
+
 });
 app.listen(3000);

@@ -88,3 +88,29 @@ if(to > __TOTAL_PAGES || to < from)
 __CURRENT_PAGE = from;
 showPage(from);
 });
+
+
+
+
+$("#submit").click(function()
+{
+  console.log(__FILE);
+  $(this).file = __FILE;
+  console.log(this);
+  var file = $(this).get.file;
+  var formData = new FormData();
+  console.log(formData);
+
+  formData.append('PDF', file, file.name);
+  
+  $.ajax({
+    url: '/upload',
+    type: 'POST',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(data){
+        console.log('upload successful!');
+    }
+  });
+});
