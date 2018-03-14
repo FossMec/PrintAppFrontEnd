@@ -6,6 +6,7 @@ const Pool = require('pg').Pool;
 const crypto = require('crypto');
 const session = require('express-session');
 const formidable = require('formidable');
+const Printer = require('node-printer');
 
 
 var options = {
@@ -13,11 +14,9 @@ var options = {
     n: 3
 };
 
-// Get available printers list
-console.log("Available Printers " + Printer.list(1));
+// console.log("Available Printers " + Printer.list(1));
 
-var printer = new Printer(`${Printer.list(1)}`);
-
+// var printer = new Printer(`${Printer.list(1)}`);
 
 var app = express();
 app.use(session({
@@ -91,12 +90,13 @@ app.get('/admin.html', function (req, res) {
 
 app.get('/user.html', function (req, res) {
   res.status(200).sendFile(path.join(__dirname,'user.html'));
-
+/*
   if(req.session && req.session.auth && req.session.auth.userID){
     res.status(200).sendFile(path.join(__dirname,'user.html'));
   }else{
     res.status(403).redirect('/login.html');
   }
+*/
 });
 
 
@@ -217,15 +217,15 @@ app.post('/add-credits',function(req,res){
                 res.status(200).send('Credits added')
                 console.log('credits added',credits);
             }
-      
-      
-      
+
+
+
         });
       }
 
       }
   });
- 
+
 });
 
 app.get('/fetch-user-data',function(req,res){
@@ -238,14 +238,30 @@ app.get('/fetch-user-data',function(req,res){
   });
 });
 
+function print(file_name){
+  var fileBuffer = fs.readFileSync('uploads/' + file_name);
+  var jobFromBuffer = printer.printBuffer(fileBuffer);
+
+// Cancel a job
+//jobFromFile.cancel();
+
+// Listen events from job
+  jobFromBuffer.once('sent', function() {
+      jobFromBuffer.on('completed', function() {
+          console.log('Job ' + jobFromBuffer.identifier + ' has been printed');
+          jobFromBuffer.removeAllListeners();
+        });
+      });
+}
+
 app.post('/upload', function(req, res){
 
-  // create an incoming form object
+
+    // create an incoming form object
   var form = new formidable.IncomingForm();
 
   // store all uploads in the /uploads directory
   form.uploadDir = path.join(__dirname, '/uploads');
-
   // every time a file has been uploaded successfully,
   // rename it to it's orignal name
   form.on('file', function(field, file) {
@@ -261,9 +277,12 @@ app.post('/upload', function(req, res){
   form.on('end', function() {
     res.end('success');
   });
+  console.log("got file");
 
   // parse the incoming request containing the form data
   form.parse(req);
 
 });
+
+
 app.listen(3000);

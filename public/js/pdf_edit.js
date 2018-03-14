@@ -94,15 +94,14 @@ showPage(from);
 
 $("#submit").click(function()
 {
-  console.log(__FILE);
-  $(this).file = __FILE;
-  console.log(this);
-  var file = $(this).get.file;
+  // var file = __FILE;
+  // var file= $('#file-to-upload').files;
+  var file = document.getElementById('file-to-upload').files[0];
+  console.log(file);
   var formData = new FormData();
-  console.log(formData);
 
-  formData.append('PDF', file, file.name);
-  
+  formData.append('file', file);
+  console.log(formData);
   $.ajax({
     url: '/upload',
     type: 'POST',
