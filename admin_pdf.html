@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Admin Control Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="./public/css/admin_pdf_style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  </head>
+  <body>
+      
+    <!--Navigation Bar on Top-->
+    <nav id="navigationbar">
+        <span class="open-slide">
+            <!--Slide bar button-->
+            <a href="#" onclick="openslidemenu()">
+                <svg width="30" height="30">
+                    <path d="M0,5 30,5" stroke="#fff"
+                    stroke-width="5"/>
+                    <path d="M0,14 30,14" stroke="#fff"
+                    stroke-width="5"/>
+                    <path d="M0,23 30,23" stroke="#fff"
+                    stroke-width="5"/>
+                </svg>
+            </a>
+        </span>
+
+
+        <!--Links-->
+        <ul class="navbar-nav">
+            <li><a href="#"><span id="foss">Foss</span><span id="mec">Mec</span></a></li>
+	        <!--<li id='credits' style='padding-left:10px;'></li>-->
+            <li><a href="#">How To Use</a></li>
+            <li><a href="#">Credits</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="/logout" id="logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    
+    <!--SlideMenu On the Side-->
+    <div id="slidemenu" class="side-bar">
+          <a href="#" class="close-btn" onclick="closeslidemenu()">&times;</a>
+          <a href="#" id="fossmec"><span id="foss">Foss</span><span id="mec">Mec</span></a>
+          <a href="#">How To Use</a>
+          <a href="#">Credits</a>
+          <a href="#">Contact Us</a>
+          <a href="/logout">Logout</a>
+    </div>
+
+
+
+    <!--Print Option-->
+    <button id="pdfPrintDiv" type="button">Take Print</button>
+
+
+    
+    <!--History Container-->
+    <div class="container">
+        <ul class="history-tags" id="history-tags">
+        </ul>
+    </div>
+
+
+    <!--Javascript-->
+    <script>
+        function openslidemenu(){
+            document.getElementById("slidemenu").style.width="250px";
+        }
+        function closeslidemenu(){
+            document.getElementById("slidemenu").style.width="0px";
+        }
+
+    </script>
+
+
+</body>
+<!--<script src="./public/js/userjs.js"></script>
+<script src="./public/js/pdf.js"></script>
+<script src="./public/js/pdf.worker.js"></script>
+<script src="./public/js/pdf_edit.js"></script>-->
+</html>

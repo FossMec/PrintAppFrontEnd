@@ -88,3 +88,28 @@ if(to > __TOTAL_PAGES || to < from)
 __CURRENT_PAGE = from;
 showPage(from);
 });
+
+
+
+
+$("#submit").click(function()
+{
+  // var file = __FILE;
+  // var file= $('#file-to-upload').files;
+  var file = document.getElementById('file-to-upload').files[0];
+  console.log(file);
+  var formData = new FormData();
+
+  formData.append('file', file);
+  console.log(formData);
+  $.ajax({
+    url: '/upload',
+    type: 'POST',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(data){
+        console.log('upload successful!');
+    }
+  });
+});

@@ -5,97 +5,11 @@ body{
     padding: 0px;
     margin: 0;
     background-color: #f4f4f4;
-    background-image: url(../assets/test1.jpeg);
+    background-image: url(../assets/grass.jpeg);
     background-size:cover;
     opacity:1;
     height: 100vh;
     overflow: hidden;
-}
-
-#options-box{
-    display: none;
-    background-color: rgba(0,0,0,0.72);
-    color: white;
-    width: 70vw;
-    position: fixed;
-    left: 3.8em;
-    top: 9em;
-
-}
-
-#file-to-upload {
-	display: none;
-}
-
-#pdf-main-container {
-	width: 400px;
-    margin: 20px auto;
-}
-
-#pdf-loader {
-	display: none;
-	text-align: center;
-	color: #999999;
-	font-size: 13px;
-	line-height: 100px;
-	height: 100px;
-}
-
-#pdf-contents {
-	display: none;
-}
-
-#pdf-meta {
-	overflow: hidden;
-	margin: 0 0 20px 0;
-}
-
-#pdf-buttons {
-    float: left;
-}
-
-#page-count-container {
-	float: right;
-}
-
-#pdf-current-page {
-	display: inline;
-}
-
-#pdf-total-pages {
-	display: inline;
-}
-
-#pdf-canvas {
-	border: 1px solid rgba(0,0,0,0.2);
-    box-sizing: border-box;
-    overflow-y: scroll;
-    width: 95vw;
-    height: 68.9vh;
-    overflow-x: scroll;
-    background-size: cover;
-}
-
-#page-loader {
-	height: 100px;
-	line-height: 100px;
-	text-align: center;
-	display: none;
-	color: #999999;
-	font-size: 13px;
-}
-
-#update{
-    margin: 5px;
-    position: fixed;
-    right: 10px;
-    bottom: 1.5em;
-}
-
-#submit{
-    position: fixed;
-    bottom: 5em;
-    left: 9.4em;
 }
 
 #navigationbar{
@@ -148,6 +62,7 @@ body{
     display: block;
     transition: 0.3s;
 }
+
 .side-bar a:hover{
     background-color: rgba(0,0,0,0.85);
 }
@@ -159,10 +74,12 @@ body{
     font-size: 30px;
     margin-left: 50px;
 }
-#creditDiv{
+
+#pdfPrintDiv{
     position: fixed;
-    right: 0.6em;
-    top: 62.8px;
+    top: 63px;
+    left: 22em;
+    width: 15%;
     background-color:#4db6ac;
     opacity: 1.1;
     color: #f4f4f4;
@@ -253,25 +170,12 @@ body{
 }
 @media(max-width:568px){
     .navbar-nav{display: none}
-    #creditDiv{height: 40px;position: fixed;right: 0.6em;top: 0.3em;padding-top: 3px;opacity: 0.99;}
+    #pdfPrintDiv{height: 40px;position: fixed;left: 4.5em;top: 0.3em;padding-top: 3px;opacity: 0.99;
+    width: 6em;}
     .container{top:6em;}
 }
 
 @media(min-width:568px){
     .open-slide{display: none}
-    #pdf-canvas{
-        width: 29vw;
-        height: 73vh;
-        position: fixed;
-        left: 31em;
-    }
-    #update{
-        bottom: 11.8em;
-        right: 15em;
-    }
-    #submit{
-        bottom: 12.4em;
-        right: 15em;
-    }
 }
 
