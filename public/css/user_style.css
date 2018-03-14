@@ -42,7 +42,8 @@ body{
 }
 
 #pdf-contents {
-	display: none;
+    display: none;
+    width: 99vw;
 }
 
 #pdf-meta {
@@ -70,8 +71,8 @@ body{
 	border: 1px solid rgba(0,0,0,0.2);
     box-sizing: border-box;
     overflow-y: scroll;
-    width: 95vw;
-    height: 68.9vh;
+    width: 95%;
+    height: 69.3vh;
     overflow-x: scroll;
     background-size: cover;
 }
@@ -85,17 +86,28 @@ body{
 	font-size: 13px;
 }
 
+#disabled-btn{
+    position: absolute;
+    bottom: 4.4%;
+    left: 1em;
+}
 #update{
-    margin: 5px;
-    position: fixed;
-    right: 10px;
-    bottom: 1.5em;
+    position: absolute;
+    right: 1.3em;
+    bottom: 4.4%;
+}
+
+#upload{
+    position: absolute;
+    right: 2em;
+    bottom: 15%;
 }
 
 #submit{
-    position: fixed;
+    position: absolute;
     bottom: 5em;
     left: 9.4em;
+    display: none;
 }
 
 #navigationbar{
@@ -267,11 +279,17 @@ body{
     }
     #update{
         bottom: 11.8em;
-        right: 15em;
+        right: 14%;
     }
-    #submit{
-        bottom: 12.4em;
-        right: 15em;
+
+    #upload{
+        left: 78.5%;
+        bottom: 41%;
+    }
+    
+    #options-box{
+        width: 30%;
+        left: 35%;
     }
 }
 

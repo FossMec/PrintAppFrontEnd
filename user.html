@@ -85,12 +85,12 @@
     
                         <div id="page-loader">Loading page ...</div>
                         <!--Showing No of Pages-->
-                        <font color='white' class='btn disabled'>
+                        <font color='white' class='btn disabled' id="disabled-btn">
                             <div id="page-count-container">Page<div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div>
                         </font>
-                        <button type="button" class='btn' id='update'>UPDATE</button>
-                        <input type="submit" class='btn' value="UPLOAD" id='submit' name="PDF">
-                    </div>
+                        <button type="button" class='btn waves-effect' id='update'>UPDATE</button>
+                        <li><a class="btn-floating green btn-large" id="upload"><i class="material-icons">publish</i></a></li>
+                        <input type="submit" class='btn waves-effect' value="UPLOAD" id='submit' name="PDF">                    </div>
                 </div>
             </div>
         
@@ -144,6 +144,10 @@
         }
         $('#update').click(function(){
             $('#options-box').fadeToggle(800);
+        });
+
+        $("#upload").click(function(){
+            $('#submit').click();
         });
 
     </script>
