@@ -46,8 +46,8 @@ app.get('/', function (req, res) {
 app.get('/public/css/home_style.css', function (req, res) {
   res.sendFile(path.join(__dirname,'public', 'css', 'home_style.css'));
 });
-app.get('/public/assets/test1.jpeg', function (req, res) {
-  res.sendFile(path.join(__dirname,'public', 'assets', 'test1.jpeg'));
+app.get('/public/assets/land1.jpeg', function (req, res) {
+  res.sendFile(path.join(__dirname,'public', 'assets', 'land1.jpeg'));
 });
 app.get('/login.html', function (req, res) {
   res.sendFile(path.join(__dirname,'login.html'));
