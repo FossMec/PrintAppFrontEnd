@@ -5,7 +5,11 @@ body{
     padding: 0px;
     margin: 0;
     background-color: #f4f4f4;
-    background-image: url(../assets/test1.jpeg);
+   /* background-image: url(../assets/test1.jpeg);*/
+    background: #0f0c29;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     background-size:cover;
     opacity:1;
     height: 100vh;
@@ -42,7 +46,8 @@ body{
 }
 
 #pdf-contents {
-	display: none;
+    display: none;
+    width: 99vw;
 }
 
 #pdf-meta {
@@ -51,7 +56,19 @@ body{
 }
 
 #pdf-buttons {
+    width: 100%;
+}
+
+#pdf-prev{
     float: left;
+    position: absolute;
+    left: 2em;
+}
+
+#pdf-next{
+    float: right;
+    position: absolute;
+    right: 2em;
 }
 
 #page-count-container {
@@ -66,14 +83,29 @@ body{
 	display: inline;
 }
 
+#holderDiv{
+    display:none;
+}
+
 #pdf-canvas {
 	border: 1px solid rgba(0,0,0,0.2);
     box-sizing: border-box;
     overflow-y: scroll;
-    width: 95vw;
-    height: 68.9vh;
+    width: 84%;
+    height: 70vh;
     overflow-x: scroll;
     background-size: cover;
+    position: absolute;
+    top: 19%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin-left: auto;
+    margin-right: auto;
+   /* position: fixed;
+    left: 1.6em;
+    top: 25%;*/
 }
 
 #page-loader {
@@ -85,17 +117,31 @@ body{
 	font-size: 13px;
 }
 
+#disabled-btn{
+    float: left;
+    position: absolute;
+    bottom: 4.4%;
+    left: 2em;
+}
 #update{
-    margin: 5px;
-    position: fixed;
-    right: 10px;
-    bottom: 1.5em;
+    float: right;
+    position: absolute;
+    right: 2em;
+    bottom: 4.4%;
+}
+
+#upload{
+    float: right;
+    position: absolute;
+    right: 2.5em;
+    bottom: 15%;
 }
 
 #submit{
-    position: fixed;
+    position: absolute;
     bottom: 5em;
     left: 9.4em;
+    display: none;
 }
 
 #navigationbar{
@@ -163,12 +209,10 @@ body{
     position: fixed;
     right: 0.6em;
     top: 62.8px;
-    background-color:#4db6ac;
     opacity: 1.1;
     color: #f4f4f4;
     text-align: center;
-    font-size: 25px;
-    border-radius: 3px;
+    font-size: 24px;
     /*z-index: 1;*/
     padding: 10px;
     padding-top: 7px;
@@ -245,6 +289,7 @@ body{
     position: fixed;
     bottom: 2em;
     right: 2em;
+    color: #6f0000;
 }
 
 .container li:hover{
@@ -259,19 +304,74 @@ body{
 
 @media(min-width:568px){
     .open-slide{display: none}
+    body{
+        background-image: url(../assets/land1.jpeg);
+    }
+
     #pdf-canvas{
-        width: 29vw;
-        height: 73vh;
+        width: 28%;
+        height: 84%;
         position: fixed;
-        left: 31em;
+        top: 4.8em;
+        bottom: 0;
+        left: 0;
+        right: -10em;
+    }
+
+    #update{
+        position: fixed;
+        top: 37.6em;
+        left: 13em;
+    }
+
+    #upload{
+        position: fixed;
+        top: 32em;
+        left: 20em;
+    }
+
+    #holderDiv{
+        display: block;
+        position: fixed;
+        top: 3.6em;
+        left: 0;
+        z-index: -1;
+        height: 100%;
+        width: 27.5%;
+        margin:0px;
+        padding:20px 10px;
+        text-align: center;
+        background: #f4f4f4;
+    }
+
+    #pdf-buttons{
+        width: 30%;
+    }
+    #pdf-next{
+        position: absolute;
+        left: 11.5em;
+        float: none;
+        width: 10em;
+    }
+    #pdf-prev{
+        position: absolute;
+        left: 2px;
     }
     #update{
         bottom: 11.8em;
-        right: 15em;
+        right: 14%;
     }
-    #submit{
-        bottom: 12.4em;
-        right: 15em;
+
+    #upload{
+        left: 78.5%;
+        bottom: 41%;
+    }
+    
+    #options-box{
+        width: 25%;
+        left: 1em;
+        height: 62.7vh;
+        line-height: 5px;
     }
 }
 

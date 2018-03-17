@@ -53,7 +53,7 @@
 
 
     <!--Credit Box-->
-    <div id="creditDiv">
+    <div id="creditDiv" class="card-panel teal">
         Credits: <span id="credit-value">12</span>
     </div>
 
@@ -75,24 +75,27 @@
 	                <div id="pdf-contents">
 		                <div id="pdf-meta">
 		                    <div id="pdf-buttons">
-			                    <a id='pdf-prev' class="waves-effect waves-light btn"><i class="material-icons">arrow_back</i>Previous</a>
-                                <a id='pdf-next' class="waves-effect waves-light btn"><i class="material-icons">arrow_forward</i>Next</a>
+			                    <a id='pdf-prev' class="waves-effect waves-light btn teal"><i class="material-icons">arrow_back</i>Previous</a>
+                                <a id='pdf-next' class="waves-effect waves-light btn teal"><i class="material-icons">arrow_forward</i>Next</a>
                             </div>
 	                    </div>
 
+                        <!--dev Tools held here-->
+                        <div class="card-panel" id="holderDiv"></div>
+                        
                         <!--PDF Canvas-->
                         <canvas id="pdf-canvas"></canvas>
 
                         <div id="page-loader">Loading page ...</div>
                         <!--Showing No of Pages-->
-                        <font color='white' class='btn disabled'>
+                        <font color='white' class='btn disabled' id="disabled-btn">
                             <div id="page-count-container">Page<div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div>
                         </font>
-                        <button type="button" class='btn' id='update'>UPDATE</button>
-                        <input type="submit" class='btn' value="UPLOAD" id='submit' name="PDF">
+                        <button type="button" class='btn waves-effect' id='update'>UPDATE</button>
+                        <button class="btn-floating green btn-large" id="upload"><i class="material-icons">publish</i></button>
+                        <input type="submit" class='btn waves-effect' value="UPLOAD" id='submit' name="PDF">                    </div>
                     </div>
                 </div>
-            </div>
 
             <div class='col s2' id="options-box">
                 <form class='form' id='pdf-settings'>
@@ -121,7 +124,7 @@
                 <input id="to" type="text" name='to' value='1' />
                 <label for="to"></label>
                 </div>
-
+                
                 <!--Update and Upload Button-
                 <button type="button" class='btn' id="update" >UPDATE</button>
                 <input type="submit" class='btn' value="UPLOAD" id='submit' name='PDF'>-->
@@ -131,7 +134,7 @@
 
 
         <!--Pdf upload floating Button-->
-        <a id='upload-button' class="btn-floating btn-large waves-effect waves-light "><i class="material-icons">add</i></a>
+        <a id='upload-button' class="btn-floating btn-large waves-effect waves-light teal "><i class="material-icons">add</i></a>
         <!--Javascript-->
     <script>
         var a = 0;
@@ -143,6 +146,10 @@
         }
         $('#update').click(function(){
             $('#options-box').fadeToggle(800);
+        });
+
+        $("#upload").click(function(){
+            $('#submit').click();
         });
 
     </script>
