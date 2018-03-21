@@ -89,9 +89,33 @@ __CURRENT_PAGE = from;
 showPage(from);
 });
 
+$("#submit").click(function()
+{
+  // var file = __FILE;
+  // var file= $('#file-to-upload').files;
+  var file = document.getElementById('file-to-upload').files[0];
+  var pg_from =  document.getElementById('from').value;
+  var pg_to =  document.getElementById('to').value;
+  var cpyno = document.getElementById('copies').value;
+  var formData = new FormData();
 
+  formData.append('file', file);
+  formData.append('from', pg_from);
+  formData.append('to', pg_to);
+  formData.append('copies', cpyno);
+  $.ajax({
+    url: '/upload',
+    type: 'POST',
+    data: formData,
+    processData: false,
+    contentType: false,
+    success: function(data){
+        console.log('upload successful!');
+    }
+  });
+});
 
-
+/*
 $("#submit").click(function()
 {
   // var file = __FILE;
@@ -113,3 +137,4 @@ $("#submit").click(function()
     }
   });
 });
+*/
