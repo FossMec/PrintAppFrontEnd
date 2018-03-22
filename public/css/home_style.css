@@ -9,7 +9,11 @@ body{
     font-size: 17px;
     color:white;
     line-height: 1.6;
-    background-image: url(/public/assets/test1.jpeg);
+    background-image: url(/public/assets/land1.jpeg);
+    /*background: #0f0c29;  /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
     background-size: cover;
     height: 100vh;
 }
@@ -37,8 +41,7 @@ body{
 }
 
 .navbar a:hover{
-    background-color: #ddd;
-    color: #000;
+    background-color: rgba(0,0,0,0.85);
 }
 
 .side-bar{
@@ -66,8 +69,7 @@ body{
 }
 
 .side-bar a:hover{
-    background-color: #ddd;
-    color:#000;
+    background-color: rgba(0,0,0,0.85);
 }
 
 .side-bar .close-btn{
@@ -91,12 +93,19 @@ body{
 }
 
 #Heading{
-    font-size: 50px;
+    font-size: 85px;
     line-height: 1.2;
+    font-family: Cookie;
+    color: white;
+  /*text-shadow:
+   -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+     1px 1px 0 #000;*/
 }
 
 #content{
-    font-size: 18px;
+    font-size: 21px;
     margin-bottom: 18px;
     margin-top: 10px;
 }
@@ -113,10 +122,14 @@ body{
     color: #e0e0e0;
 }
 
-#mec:hover{
-    color: #000;
-}
 
 @media(max-width:568px){
     .navbar-nav{display: none}
+    body{
+        background-size: cover;
+      /*  background-image: none;
+       /* background: #0f0c29;
+        background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);  /* Chrome 10-25, Safari 5.1-6 */
+       /* background: linear-gradient(to right, #24243e, #302b63, #0f0c29); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
 }

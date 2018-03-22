@@ -5,24 +5,22 @@ const bodyParser = require('body-parser');
 const Pool = require('pg').Pool;
 const crypto = require('crypto');
 const session = require('express-session');
-const formidable = require('formidable');
-const Printer = require('node-printer');
+const formidable = require('express-formidable');
+const printer = require('printer');
 
+console.log("Default Printer: " + (printer.getDefaultPrinterName() || "NONE"));
 
-var options = {
-    media: 'Custom.200x600mm',
-    n: 3
-};
-
-// console.log("Available Printers " + Printer.list(1));
-
-// var printer = new Printer(`${Printer.list(1)}`);
+var printer_name = printer.getDefaultPrinterName();
 
 var app = express();
 app.use(session({
   secret:"someRandomValue",
   cookie:{maxAge: 1000*60*60*24*30}
 }));
+app.use(formidable({
+  uploadDir: './uploads/',
+}));
+
 var config = {
   user:'postgres',
   password: 'postgres',
@@ -46,8 +44,8 @@ app.get('/', function (req, res) {
 app.get('/public/css/home_style.css', function (req, res) {
   res.sendFile(path.join(__dirname,'public', 'css', 'home_style.css'));
 });
-app.get('/public/assets/test1.jpeg', function (req, res) {
-  res.sendFile(path.join(__dirname,'public', 'assets', 'test1.jpeg'));
+app.get('/public/assets/land1.jpeg', function (req, res) {
+  res.sendFile(path.join(__dirname,'public', 'assets', 'land1.jpeg'));
 });
 app.get('/login.html', function (req, res) {
   res.sendFile(path.join(__dirname,'login.html'));
@@ -238,51 +236,39 @@ app.get('/fetch-user-data',function(req,res){
   });
 });
 
-function print(file_name){
-  var fileBuffer = fs.readFileSync('uploads/' + file_name);
-  var jobFromBuffer = printer.printBuffer(fileBuffer);
-
-// Cancel a job
-//jobFromFile.cancel();
-
-// Listen events from job
-  jobFromBuffer.once('sent', function() {
-      jobFromBuffer.on('completed', function() {
-          console.log('Job ' + jobFromBuffer.identifier + ' has been printed');
-          jobFromBuffer.removeAllListeners();
-        });
-      });
+function print(file_name, from, to){
+  fs.readFile(file_name, function(err, data){
+    if(err) {
+      console.error('err:' + err);
+      return;
+    }
+      console.log('Sending it to the Printer');
+      printer.printDirect({
+          data: data,
+          printer: printer_name,
+          type: 'PDF',
+          options:{
+            'page-ranges': '1-3',
+            'collate': 'true',
+            '-#': '3',
+          },
+          success: function(id) {
+              console.log('printed with id ' + id);
+          },
+          error: function(err) {
+              console.error('error on printing: ' + err);
+          },
+      })
+  });
 }
 
-app.post('/upload', function(req, res){
-
-
-    // create an incoming form object
-  var form = new formidable.IncomingForm();
-
-  // store all uploads in the /uploads directory
-  form.uploadDir = path.join(__dirname, '/uploads');
-  // every time a file has been uploaded successfully,
-  // rename it to it's orignal name
-  form.on('file', function(field, file) {
-    fs.rename(file.path, path.join(form.uploadDir, file.name));
-  });
-
-  // log any errors that occur
-  form.on('error', function(err) {
-    console.log('An error has occured: \n' + err);
-  });
-
-  // once all the files have been uploaded, send a response to the client
-  form.on('end', function() {
-    res.end('success');
-  });
-  console.log("got file");
-
-  // parse the incoming request containing the form data
-  form.parse(req);
-
+app.post('/upload', (req, res) => {
+  console.log("Got the file");
+  var fields = req.fields;
+  var path = req.files.file.path;
+  for(var i = 0; i < fields.copies; ++i){
+    print(path, fields.from, fields.to);
+  }
 });
-
 
 app.listen(3000);
