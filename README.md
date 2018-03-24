@@ -1,11 +1,17 @@
 # WirelessPrintingApp
 
 Team Members:  
+
 1.Aswin M Prabhu  
+
 2.Joyal A Johney  
+
 3.Vivek R
+
 4.Aswin G
+
 5.Ashmi  
+
 6.Srinidhi   
 
 
