@@ -97,12 +97,14 @@ $("#submit").click(function()
   var pg_from =  document.getElementById('from').value;
   var pg_to =  document.getElementById('to').value;
   var cpyno = document.getElementById('copies').value;
+  var color = (document.getElementById('color').checked)?100:0;
   var formData = new FormData();
 
   formData.append('file', file);
   formData.append('from', pg_from);
   formData.append('to', pg_to);
   formData.append('copies', cpyno);
+  formData.append('color',color);
   $.ajax({
     url: '/upload',
     type: 'POST',
