@@ -5,24 +5,18 @@ const bodyParser = require('body-parser');
 const Pool = require('pg').Pool;
 const crypto = require('crypto');
 const session = require('express-session');
-const formidable = require('formidable');
-const Printer = require('node-printer');
-
-
-var options = {
-    media: 'Custom.200x600mm',
-    n: 3
-};
-
-// console.log("Available Printers " + Printer.list(1));
-
-// var printer = new Printer(`${Printer.list(1)}`);
+const formidable = require('express-formidable');
+const exec = require('child_process').exec;
 
 var app = express();
 app.use(session({
   secret:"someRandomValue",
   cookie:{maxAge: 1000*60*60*24*30}
 }));
+app.use(formidable({
+  uploadDir: './uploads/',
+}));
+
 var config = {
   user:'postgres',
   password: 'postgres',
@@ -238,51 +232,22 @@ app.get('/fetch-user-data',function(req,res){
   });
 });
 
-function print(file_name){
-  var fileBuffer = fs.readFileSync('uploads/' + file_name);
-  var jobFromBuffer = printer.printBuffer(fileBuffer);
-
-// Cancel a job
-//jobFromFile.cancel();
-
-// Listen events from job
-  jobFromBuffer.once('sent', function() {
-      jobFromBuffer.on('completed', function() {
-          console.log('Job ' + jobFromBuffer.identifier + ' has been printed');
-          jobFromBuffer.removeAllListeners();
-        });
-      });
-}
-
-app.post('/upload', function(req, res){
-
-
-    // create an incoming form object
-  var form = new formidable.IncomingForm();
-
-  // store all uploads in the /uploads directory
-  form.uploadDir = path.join(__dirname, '/uploads');
-  // every time a file has been uploaded successfully,
-  // rename it to it's orignal name
-  form.on('file', function(field, file) {
-    fs.rename(file.path, path.join(form.uploadDir, file.name));
-  });
-
-  // log any errors that occur
-  form.on('error', function(err) {
-    console.log('An error has occured: \n' + err);
-  });
-
-  // once all the files have been uploaded, send a response to the client
-  form.on('end', function() {
-    res.end('success');
-  });
-  console.log("got file");
-
-  // parse the incoming request containing the form data
-  form.parse(req);
-
+app.post('/upload', (req, res) => {
+  var fields = req.fields;
+  console.log(fields);
+  var path = req.files.file.path;
+  for(var i = 0; i < fields.copies; ++i){
+    exec("lpr -o saturation="+fields.color+" -o page-ranges="+fields.from+"-"+fields.to+" "+path, (err,stdout,stderr) => {
+      if(err){
+        console.log(err);
+        return;
+      }
+      else{
+        //REDUCE CREDITS HERE
+      }
+    });
+    //print(path, fields.from, fields.to);
+  }
 });
-
 
 app.listen(3000);
