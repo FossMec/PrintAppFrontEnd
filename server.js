@@ -246,7 +246,6 @@ app.post('/upload', (req, res) => {
         //REDUCE CREDITS HERE
       }
     });
-    //print(path, fields.from, fields.to);
   }
 });
 
