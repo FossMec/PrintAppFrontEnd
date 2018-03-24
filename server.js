@@ -7,6 +7,7 @@ const crypto = require('crypto');
 const session = require('express-session');
 const formidable = require('express-formidable');
 const printer = require('printer');
+const exec = require('child_process').exec;
 
 console.log("Default Printer: " + (printer.getDefaultPrinterName() || "NONE"));
 
@@ -263,11 +264,11 @@ function print(file_name, from, to){
 }
 
 app.post('/upload', (req, res) => {
-  console.log("Got the file");
   var fields = req.fields;
   var path = req.files.file.path;
   for(var i = 0; i < fields.copies; ++i){
-    print(path, fields.from, fields.to);
+    exec("lp "+path);
+    //print(path, fields.from, fields.to);
   }
 });
 
