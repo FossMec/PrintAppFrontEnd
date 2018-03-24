@@ -73,63 +73,63 @@
                 <div id="pdf-main-container">
 	                <!--<div id="pdf-loader">Loading document ...</div>-->
 	                <div id="pdf-contents">
-		                <div id="pdf-meta">
-		                    <div id="pdf-buttons">
-			                    <a id='pdf-prev' class="waves-effect waves-light btn teal"><i class="material-icons">arrow_back</i>Previous</a>
-                                <a id='pdf-next' class="waves-effect waves-light btn teal"><i class="material-icons">arrow_forward</i>Next</a>
-                            </div>
-	                    </div>
-
                         <!--dev Tools held here-->
-                        <div class="card-panel" id="holderDiv"></div>
+                        <div class="card-panel" id="holderDiv">
+                            <div id="pdf-meta">
+                                <div id="pdf-buttons">
+                                    <a id='pdf-prev' class="waves-effect waves-light btn teal"><i class="material-icons">arrow_back</i>Previous</a>
+                                    <a id='pdf-next' class="waves-effect waves-light btn teal"><i class="material-icons">arrow_forward</i>Next</a>
+                                </div>
+                            </div>
+                            <font color='white' class='btn disabled' id="disabled-btn">
+                                <div id="page-count-container">Page<div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div>
+                            </font>
+                            <button type="button" class='btn waves-effect' id='update'>UPDATE</button>
+
+
+                            <div class='col s2' id="options-box">
+                                <form class='form' id='pdf-settings'>
+                                <p>
+                                    <input name="group1" type="radio" id="color"/>
+                                    <label for="color">Color</label>
+                                </p>
+                                <p>
+                                    <input name="group1" type="radio" id="bw" checked/>
+                                    <label for="bw">Black & White</label>
+                                </p>
+                                Numer of copies
+                                <div class="input-field">
+                                    <input id="copies" type="text" name='copies' value='1' />
+                                    <label for="copies"></label>
+                                </div>
+                
+                                From
+                                <div class="input-field">
+                                <input id="from" type="text" name='from' value='1' />
+                                <label for="from"></label>
+                                </div>
+                
+                                To
+                                <div class="input-field">
+                                <input id="to" type="text" name='to' value='1' />
+                                <label for="to"></label>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
                         
                         <!--PDF Canvas-->
-                        <canvas id="pdf-canvas"></canvas>
+                        <div id="outerCanvas">
+                            <canvas id="pdf-canvas"></canvas>
+                            <button class="btn-floating green btn-large" id="upload"><i class="material-icons">publish</i></button>
+                        </div>
 
                         <div id="page-loader">Loading page ...</div>
-                        <!--Showing No of Pages-->
-                        <font color='white' class='btn disabled' id="disabled-btn">
-                            <div id="page-count-container">Page<div id="pdf-current-page"></div> of <div id="pdf-total-pages"></div></div>
-                        </font>
-                        <button type="button" class='btn waves-effect' id='update'>UPDATE</button>
-                        <button class="btn-floating green btn-large" id="upload"><i class="material-icons">publish</i></button>
+                       <!-- <button class="btn-floating green btn-large" id="upload"><i class="material-icons">publish</i></button>-->
                         <input type="submit" class='btn waves-effect' value="UPLOAD" id='submit' name="PDF">                    </div>
                     </div>
                 </div>
 
-            <div class='col s2' id="options-box">
-                <form class='form' id='pdf-settings'>
-                <p>
-                    <input name="group1" type="radio" id="color" />
-                    <label for="color">Color</label>
-                </p>
-                <p>
-                    <input name="group1" type="radio" id="bw" />
-                    <label for="bw">Black & White</label>
-                </p>
-                Numer of copies
-                <div class="input-field">
-                    <input id="copies" type="text" name='copies' value='1' />
-                    <label for="copies"></label>
-                </div>
-
-                From
-                <div class="input-field">
-                <input id="from" type="text" name='from' value='1' />
-                <label for="from"></label>
-                </div>
-
-                To
-                <div class="input-field">
-                <input id="to" type="text" name='to' value='1' />
-                <label for="to"></label>
-                </div>
-                
-                <!--Update and Upload Button-
-                <button type="button" class='btn' id="update" >UPDATE</button>
-                <input type="submit" class='btn' value="UPLOAD" id='submit' name='PDF'>-->
-                </form>
-            </div>
         </div>
 
 
