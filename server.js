@@ -6,12 +6,7 @@ const Pool = require('pg').Pool;
 const crypto = require('crypto');
 const session = require('express-session');
 const formidable = require('express-formidable');
-const printer = require('printer');
 const exec = require('child_process').exec;
-
-console.log("Default Printer: " + (printer.getDefaultPrinterName() || "NONE"));
-
-var printer_name = printer.getDefaultPrinterName();
 
 var app = express();
 app.use(session({
@@ -236,32 +231,6 @@ app.get('/fetch-user-data',function(req,res){
     }
   });
 });
-
-function print(file_name, from, to){
-  fs.readFile(file_name, function(err, data){
-    if(err) {
-      console.error('err:' + err);
-      return;
-    }
-      console.log('Sending it to the Printer');
-      printer.printDirect({
-          data: data,
-          printer: printer_name,
-          type: 'PDF',
-          options:{
-            'page-ranges': '1-3',
-            'collate': 'true',
-            '-#': '3',
-          },
-          success: function(id) {
-              console.log('printed with id ' + id);
-          },
-          error: function(err) {
-              console.error('error on printing: ' + err);
-          },
-      })
-  });
-}
 
 app.post('/upload', (req, res) => {
   var fields = req.fields;
