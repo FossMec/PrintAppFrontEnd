@@ -1,11 +1,18 @@
 # WirelessPrintingApp
 
 Team Members:  
+
 1.Aswin M Prabhu  
+
 2.Joyal A Johney  
-3.Vivek R  
-4.Ashmi  
-5.Srinidhi   
+
+3.Vivek R
+
+4.Aswin G
+
+5.Ashmi  
+
+6.Srinidhi   
 
 
 ## To run the app on your local machine

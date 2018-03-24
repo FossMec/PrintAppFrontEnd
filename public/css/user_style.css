@@ -24,6 +24,7 @@ body{
     position: fixed;
     left: 3.8em;
     top: 9em;
+    z-index: 1;
 
 }
 
@@ -56,6 +57,11 @@ body{
 }
 
 #pdf-buttons {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 12%;
+    margin: auto;
     width: 100%;
 }
 
@@ -63,12 +69,14 @@ body{
     float: left;
     position: absolute;
     left: 2em;
+    z-index: 0;
 }
 
 #pdf-next{
     float: right;
     position: absolute;
     right: 2em;
+    z-index: 0;
 }
 
 #page-count-container {
@@ -84,7 +92,7 @@ body{
 }
 
 #holderDiv{
-    display:none;
+    background: none;
 }
 
 #pdf-canvas {
@@ -128,6 +136,7 @@ body{
     position: absolute;
     right: 2em;
     bottom: 4.4%;
+    z-index: 0;
 }
 
 #upload{
@@ -307,35 +316,12 @@ body{
     body{
         background-image: url(../assets/land1.jpeg);
     }
-
-    #pdf-canvas{
-        width: 28%;
-        height: 84%;
-        position: fixed;
-        top: 4.8em;
-        bottom: 0;
-        left: 0;
-        right: -10em;
-    }
-
-    #update{
-        position: fixed;
-        top: 37.6em;
-        left: 13em;
-    }
-
-    #upload{
-        position: fixed;
-        top: 32em;
-        left: 20em;
-    }
-
     #holderDiv{
         display: block;
         position: fixed;
         top: 3.6em;
         left: 0;
-        z-index: -1;
+        z-index: 0;
         height: 100%;
         width: 27.5%;
         margin:0px;
@@ -344,34 +330,79 @@ body{
         background: #f4f4f4;
     }
 
-    #pdf-buttons{
+    #outercanvas{
         width: 30%;
+        height: 87%;
+        position: fixed;
+        top: 4.5em;
+        bottom: 0;
+        left: 0;
+        right: -10em;
+
+    }
+
+    #pdf-canvas{
+        width: 30%;
+        height: 87%;
+        position: fixed;
+        top: 4.5em;
+        bottom: 0;
+        left: 0;
+        right: -10em;
+        z-index: -1;
+    }
+
+    #update{
+        position: absolute;
+        bottom: 13%;
+        right: 7%;
+        float: right;
+
+    }
+
+    #disabled-btn{
+        position: absolute;
+        bottom: 13%;
+        float: left;
+        left: 8%;
+    }
+
+    #pdf-buttons{
+        position: absolute;
+        width: 100%;
+        top: 6%;
     }
     #pdf-next{
         position: absolute;
-        left: 11.5em;
-        float: none;
-        width: 10em;
+        float: right;
+        top: 6%;
+        right: 8%;
     }
     #pdf-prev{
         position: absolute;
-        left: 2px;
-    }
-    #update{
-        bottom: 11.8em;
-        right: 14%;
+        float: left;
+        top: 6%;
+        left: 5.7%;
     }
 
+
     #upload{
-        left: 78.5%;
-        bottom: 41%;
+        position: absolute;
+        float: left;
+        bottom: 8%;
+        left: 64.5%;
     }
-    
+
     #options-box{
-        width: 25%;
-        left: 1em;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: -5%;
+        bottom: 0;
+        margin: auto;
+        width: 90%;
         height: 62.7vh;
-        line-height: 5px;
+        line-height: 9px;
     }
 }
 
