@@ -84,13 +84,13 @@ app.get('/admin.html', function (req, res) {
 
 app.get('/user.html', function (req, res) {
   res.status(200).sendFile(path.join(__dirname,'user.html'));
-/*
+
   if(req.session && req.session.auth && req.session.auth.userID){
     res.status(200).sendFile(path.join(__dirname,'user.html'));
   }else{
     res.status(403).redirect('/login.html');
   }
-*/
+
 });
 
 
@@ -125,6 +125,7 @@ app.get('/hash/:input',function(req,res){
   res.send(hashedString);
 });
 app.post('/create-user',function(req,res){
+  console.log(req.body);
   var username = req.body.username;
   var password = req.body.password;
   var phone = req.body.phone;
@@ -147,6 +148,7 @@ app.post('/create-user',function(req,res){
 app.post('/login-user',function(req,res){
   var username = req.body.username;
   var password = req.body.password;
+  console.log(username,password);
   pool.query('SELECT * FROM "users" WHERE username = $1',[username],function(err,result){
     if(err){
       res.status(500).send(err.toString());
