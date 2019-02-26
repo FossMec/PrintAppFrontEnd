@@ -22,7 +22,7 @@
     "express-formidable": "^1.0.0",
     "express-session": "^1.15.6",
     "formidable": "^1.2.0",
-    "morgan": "^1.7.0",
+    "morgan": "^1.9.1",
     "node-printer": "^1.0.2",
     "pg": "^7.4.1"
   }
